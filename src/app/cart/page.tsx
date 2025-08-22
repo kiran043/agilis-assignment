@@ -1,5 +1,6 @@
-"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
+"use client";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCartByUser } from "@/app/store/slice/cartSlice";

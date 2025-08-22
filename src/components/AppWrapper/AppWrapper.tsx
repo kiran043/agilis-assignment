@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchCartByUser, hydrateCart, setCart } from "@/app/store/slice/cartSlice";
+import { hydrateCart, setCart } from "@/app/store/slice/cartSlice";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
-import Header from "../Header/Header";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function AppWrapper({ children }: { children: React.ReactNode }) {
   const dispatch = useDispatch();

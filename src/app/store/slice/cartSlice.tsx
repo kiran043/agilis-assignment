@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import Cookies from "js-cookie";
 
@@ -50,26 +52,6 @@ export const fetchCartByUser = createAsyncThunk(
   }
 );
 
-// export const addToCart = createAsyncThunk(
-//   "cart/add",
-//   async ({ productId, quantity }: { productId: number; quantity: number }) => {
-//     const userId = getUserId();
-//     try {
-//       await fetch(`${BASE_URL}/carts/add`, {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({
-//           userId: Number(userId),
-//           products: [{ id: productId, quantity }],
-//         }),
-//       });
-//     } catch (e) {
-//       console.warn("AddToCart API failed, using local only");
-//     }
-
-//     return { productId, quantity };
-//   }
-// );
 
 export const addToCart = createAsyncThunk(
   "cart/add",
@@ -88,7 +70,6 @@ export const addToCart = createAsyncThunk(
         }),
       });
 
-      // ✅ After add, fetch fresh cart for that user
       if (userId) {
         dispatch(fetchCartByUser(userId));
       }
